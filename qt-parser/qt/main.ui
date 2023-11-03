@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Менеджер</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QPushButton" name="load_article_btn">

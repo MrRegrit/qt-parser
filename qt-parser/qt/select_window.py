@@ -1,22 +1,7 @@
 import PyQt5.QtWidgets
 import PyQt5.uic
 import sqlite3
-import sys
 import importlib.util
-
-
-class MainWindow(PyQt5.QtWidgets.QMainWindow):
-    def __init__(self, parsers):
-        super().__init__()
-        self.parsers = parsers
-        self.marketplaces = [i[0] for i in parsers]
-        PyQt5.uic.loadUi("qt/main.ui", self)
-        self.load_article_btn.clicked.connect(self.open_second_form)
-
-    def open_second_form(self):
-        self.second_form = LoadNewArticleWidget(self)
-        self.second_form.show()
-        self.hide()
 
 
 class LoadNewArticleWidget(PyQt5.QtWidgets.QWidget):
@@ -61,11 +46,3 @@ class LoadNewArticleWidget(PyQt5.QtWidgets.QWidget):
         self.main.setGeometry(self.geometry())
         self.main.show()
         event.accept()
-
-
-def start(parsers):
-    app = PyQt5.QtWidgets.QApplication(sys.argv)
-    app.setStyle("Fusion")
-    ex = MainWindow(parsers)
-    ex.show()
-    sys.exit(app.exec())
