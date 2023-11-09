@@ -1,0 +1,26 @@
+[
+    {
+        "article": "164462293",
+        "description": "Тестовый товар",
+        "id": 1,
+        "marketplace": "wildberries"
+    },
+    {
+        "article": "174449532",
+        "description": "Тестовый товар 2",
+        "id": 2,
+        "marketplace": "wildberries"
+    },
+    {
+        "article": "116461751",
+        "description": "Тестовый товар 3",
+        "id": 3,
+        "marketplace": "wildberries"
+    },
+    {
+        "article": "876876",
+        "description": "Тестовый товар 4",
+        "id": 4,
+        "marketplace": "wildberries"
+    }
+]

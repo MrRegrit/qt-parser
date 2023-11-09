@@ -1,6 +1,8 @@
-import qt.main_window
-import PyQt5.QtWidgets
 import sys
+
+import PyQt5.QtWidgets
+
+import qt.main_window
 
 parsers = (("wildberries", "parser_wb"),)
 
@@ -15,3 +17,6 @@ def start(parsers):
 
 if __name__ == "__main__":
     start(parsers)
+
+
+__all__ = []
