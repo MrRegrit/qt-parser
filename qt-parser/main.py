@@ -1,3 +1,4 @@
+import sqlite3
 import sys
 
 import PyQt5.QtWidgets
@@ -15,8 +16,35 @@ def start(parsers):
     sys.exit(app.exec())
 
 
-if __name__ == "__main__":
-    start(parsers)
+def createdb():
+    connection = sqlite3.connect("db.sqlite")
+    cursor = connection.cursor()
 
+    cursor.execute(
+        "create table items"
+        "(id INTEGER primary key autoincrement, "
+        "article  TEXT not null, "
+        "marketplace TEXT not null, "
+        "description TEXT)",
+    ).fetchall()
+    cursor.execute(
+        "create table prices"
+        "(id INTEGER primary key autoincrement, "
+        "item_id  INTEGER not null references items, "
+        "price INTEGER not null, "
+        "datetime TEXT)",
+    ).fetchall()
+    connection.commit()
+    connection.close()
+
+
+if __name__ == "__main__":
+    argv = sys.argv
+    if sys.argv[1] == "start":
+        start(parsers)
+    elif sys.argv[1] == "createdb":
+        createdb()
+    else:
+        raise ValueError("Введите createdb or start")
 
 __all__ = []

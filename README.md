@@ -37,9 +37,11 @@ pip install -r requirements/dev.txt
 ```
 
 # Запуск проекта
+Перейдите в папку проекта, создайте базу данных и запустите проект
 ```
 cd qt-parser
-python main.py
+python main.py createdb
+python main.py start
 ```
 
 # Создание собственных парсеров
