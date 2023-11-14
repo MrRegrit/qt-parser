@@ -1,6 +1,5 @@
 import sqlite3
 
-import fake_useragent
 import requests
 
 import parsers.exeptions
@@ -23,12 +22,10 @@ def get_items_from_sql():
 
 
 def get_page(articles):
-    ua = fake_useragent.UserAgent().random
-    headers = {"User-Agent": ua}
 
     url = url_marketplace + ";".join(articles)
 
-    return requests.get(url, headers=headers).json()
+    return requests.get(url).json()
 
 
 def parsing_items():
@@ -61,9 +58,6 @@ def parsing_items():
 
 
 def check_data(article):
-    ua = fake_useragent.UserAgent().random
-    headers = {"User-Agent": ua}
-
     url = url_marketplace + article
 
     if not article.isdigit():
@@ -71,7 +65,7 @@ def check_data(article):
             "Артикул для вб должен состоять только из цифр",
         )
 
-    page = requests.get(url, headers=headers).json()
+    page = requests.get(url).json()
 
     if not page["data"]["products"]:
         raise parsers.exeptions.Article404(
